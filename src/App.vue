@@ -1,108 +1,216 @@
-<script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-const a = '1'
-console.log(a)
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <main class="container">
-    <form id="form" class="form">
-      <h2>Register With Us</h2>
-      <div class="form-control">
-        <label for="username">Username</label>
-        <input type="text" id="username" placeholder="Enter username" />
-        <small>Error Message</small>
+  <div class="body">
+    <div class="header">
+      <label for="movie">Pick a movie：</label>
+      <select id="movie">
+        <option value="">The Lion King $4</option>
+        <option value="">The Lion King2 $10</option>
+        <option value="">The Lion King3 $12</option>
+        <option value="">The Lion King4 $13</option>
+      </select>
+    </div>
+    <div class="content">
+      <ul>
+        <li>
+          <div class="seat"></div>
+          <span>N/A</span>
+        </li>
+        <li>
+          <div class="seat selected"></div>
+          <span>Selected</span>
+        </li>
+        <li>
+          <div class="seat unavailable"></div>
+          <span>Unavailable</span>
+        </li>
+      </ul>
+    </div>
+    <div class="container">
+      <div class="screen"></div>
+      <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat selected"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
       </div>
-      <div class="form-control">
-        <label for="email">Email</label>
-        <input type="text" id="email" placeholder="Enter email" />
-        <small>Error Message</small>
+      <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat unavailable"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
       </div>
-      <div class="form-control">
-        <label for="password">Password</label>
-        <input type="password" id="password" placeholder="Enter password" />
-        <small>Error Message</small>
+      <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
       </div>
-      <div class="form-control">
-        <label for="password2">Confirm Password</label>
-        <input type="password" id="password2" placeholder="Enter password2" />
-        <small>Error Message</small>
+      <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
       </div>
-      <button>Submit</button>
-    </form>
-  </main>
+      <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+      </div>
+      <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+      </div>
+      <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+      </div>
+      <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+      </div>
+    </div>
+    <div class="footer">
+      <p>
+        You have selected <span id="count">0</span> seats for a price of $<span id="total">0</span>
+      </p>
+    </div>
+  </div>
 </template>
 
 <style scoped lang="scss">
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+* {
+  box-sizing: border-box;
   margin: 0;
-  background-color: #f5f5f5;
+  padding: 0;
 }
-
-.form {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  max-width: 400px;
-  width: 100%;
-  label {
-    display: block;
-    margin-bottom: 5px;
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: #242424;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #f1f1f1;
+  font-size: 20px;
+  font-weight: bold;
+  .header {
+    display: flex;
+    margin-bottom: 50px;
+    select {
+      padding: 3px;
+      border-radius: 5px;
+      appearance: none;
+      // width: 130px;
+    }
   }
 
-  h2 {
-    text-align: center;
-    margin-bottom: 20px;
+  .content {
+    margin-bottom: 50px;
+    ul {
+      display: flex;
+      // align-items: between;
+      justify-content: space-between;
+      list-style-type: none;
+      li {
+        display: flex;
+        .seat {
+          width: 15px;
+          height: 13px;
+          margin: 5px;
+          background-color: #f1f1f1;
+          // border-radius: 5px;
+          // border: 1px solid black;
+          border-top-right-radius: 10px;
+          border-top-left-radius: 10px;
+          &.selected {
+            background-color: green;
+          }
+          &.unavailable {
+            background-color: red;
+          }
+        }
+      }
+    }
   }
-  .form-control {
-    margin-bottom: 10px;
 
-    input {
+  .container {
+    // display: flex;
+
+    margin-bottom: 50px;
+    perspective: 1000px;
+    .screen {
+      background-color: #fff;
       width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-size: 16px;
-
-      &:focus {
-        outline: 0;
-        border-color: black;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+      height: 100px;
+      margin: 20px 0;
+      transform: rotateX(-45deg);
+      box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);
+    }
+    .row {
+      display: flex;
+    }
+    .seat {
+      width: 15px;
+      height: 13px;
+      margin: 7px;
+      border-top-right-radius: 10px;
+      border-top-left-radius: 10px;
+      background-color: #fff;
+      &:not(.unavailable):hover {
+        cursor: pointer;
+        transform: scale(1.2);
       }
-      &.success {
-        border-color: var(--success-color);
+      &.selected {
+        background-color: green;
       }
-
-      &.error {
-        border-color: var(--error-color);
+      &.unavailable {
+        background-color: red;
       }
     }
-    small {
-      color: var(--error-color);
-      // color: red;
-      display: block;
-      visibility: hidden;
-      margin-top: 5px;
-
-      &.error {
-        visibility: visible;
-      }
-    }
-  }
-  button {
-    width: 100%;
-    padding: 10px;
-    background-color: #5482c5;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
   }
 }
 </style>
